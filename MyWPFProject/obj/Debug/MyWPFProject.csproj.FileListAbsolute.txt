@@ -1,0 +1,15 @@
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\bin\Debug\MyWPFProject.exe.config
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\bin\Debug\MyWPFProject.exe
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\bin\Debug\MyWPFProject.pdb
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MyWPFProject.csprojAssemblyReference.cache
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MainWindow.g.cs
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\App.g.cs
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MyWPFProject_MarkupCompile.cache
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MyWPFProject_MarkupCompile.lref
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MainWindow.baml
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MyWPFProject.g.resources
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MyWPFProject.Properties.Resources.resources
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MyWPFProject.csproj.GenerateResource.cache
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MyWPFProject.csproj.CoreCompileInputs.cache
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MyWPFProject.exe
+C:\Users\Mihokw39\source\repos\MyWPFProject\MyWPFProject\obj\Debug\MyWPFProject.pdb
