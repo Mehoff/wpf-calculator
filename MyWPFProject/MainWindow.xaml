@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyWPFProject"
         mc:Ignorable="d"
         Title="Calculator" Height="400" Width="225">
-    <Grid x:Name="MainGrid" ShowGridLines="True">
+    <Grid x:Name="MainGrid" ShowGridLines="False">
         <Grid.RowDefinitions>
             <!--input-->
             <RowDefinition Height="80"></RowDefinition>
@@ -49,6 +49,9 @@
         <Button Click="btnClick" x:Name="dotBtn" Grid.Column="2" Grid.Row="6" FontWeight="Bold">.</Button>
         <Button Click="btnClick" x:Name="equalsBtn" Grid.Column="3" Grid.Row="6" FontSize="24">=</Button>
 
-        <TextBlock x:Name="MainTextBlock" Grid.Column="0" Grid.ColumnSpan="4" FontSize="28" TextAlignment="Center" FontFamily="Roboto" FontWeight="DemiBold" VerticalAlignment="Center" HorizontalAlignment="Right" Text="0"></TextBlock>
+        <Viewbox Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <TextBlock x:Name="InputLabel"></TextBlock>
+        </Viewbox>
+   
     </Grid>
 </Window>

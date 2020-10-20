@@ -26,13 +26,79 @@ namespace MyWPFProject
         {
             InitializeComponent();
         }
-        private void Calculate()
+        private string GetVal(int left_value, int right_value, char doWhat)
         {
+            try
+            {
+                switch (doWhat)
+                {
+                    case '+': return (left_value + right_value).ToString();
+                    case '-': return (left_value - right_value).ToString();
+                    case '/': return (left_value / right_value).ToString();
+                    case '*': return (left_value * right_value).ToString();
 
+                    default: throw new Exception($"Unexpected dowhat ex: {doWhat}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return null;
+            }
+        }
+        private string Calculate()
+        {
+            bool isLeft = true;
+            string left = string.Empty;
+            string right = string.Empty;
+            char dowhat = ' ';
+
+            foreach (char symbol in inputString)
+            {
+                try
+                {
+                    int value = int.Parse(symbol.ToString());
+                    if (isLeft) left += symbol;
+                    else right += symbol;
+                }
+                catch
+                {
+                    // Второе действие
+                    if (dowhat != ' ')
+                    {
+                        left = GetVal(int.Parse(left), int.Parse(right), dowhat);
+                        right = string.Empty;
+                    }
+                    // Первое действие
+                    else
+                    {
+                        dowhat = symbol;
+                        isLeft = false;
+                    }
+                }
+
+            }
+
+            var left_value = int.Parse(left);
+            var right_value = int.Parse(right);
+
+
+            Clear();
+            return GetVal(left_value, right_value, dowhat);
+
+
+        }
+        private void Clear()
+        {
+            inputString = string.Empty;
         }
         private string GetSymbol(Button btn)
         {
-            switch (btn.Name)
+            if (inputString == "0")
+                inputString = string.Empty;
+
+
+                switch (btn.Name)
             {
                 case "oneBtn": return "1";
                 case "twoBtn": return "2";                    
@@ -44,15 +110,28 @@ namespace MyWPFProject
                 case "eightBtn": return "8";                    
                 case "nineBtn": return "9";                    
                 case "zeroBtn": return "0";
+                case "equalsBtn": { return Calculate(); } 
+                case "dotBtn": return null;
+                case "plusMinusBtn": return null;
+                case "plusBtn": return "+";
+                case "minusBtn": return "-";
+                case "multiplyBtn": return "*";
+                case "divideBtn": return "/";
+                case "deleteBtn": return inputString.Remove(inputString.Length - 1);
+                case "clearAllBtn": { Clear(); return "0"; }
+                case "squareBtn": return null;
+                case "sqrtBtn": return null;
+                case "percentBtn": return null;
+
                 default: return string.Empty;
             }
         }
         private void btnClick(object sender, RoutedEventArgs e)
         {
             var btn = e.Source as Button;
-            MessageBox.Show(GetSymbol(btn));
-            inputString.Insert(0, GetSymbol(btn));
-            MainTextBlock.Text = inputString;
+            var symbol = GetSymbol(btn);
+            inputString += symbol;
+            InputLabel.Text = inputString;
         }
     }
 }
