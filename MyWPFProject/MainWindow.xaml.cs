@@ -21,11 +21,13 @@ namespace MyWPFProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string inputString { get; set; } = "0";
+        private string inputString { get; set; } = "0";
+        private string storedValue { get; set; } = string.Empty;
         public MainWindow()
         {
             InitializeComponent();
         }
+
         private string GetVal(int left_value, int right_value, char doWhat)
         {
             try
@@ -55,6 +57,7 @@ namespace MyWPFProject
 
             foreach (char symbol in inputString)
             {
+                
                 try
                 {
                     int value = int.Parse(symbol.ToString());
@@ -79,9 +82,19 @@ namespace MyWPFProject
 
             }
 
-            var left_value = int.Parse(left);
-            var right_value = int.Parse(right);
+            int left_value = 0;
+            int right_value = 0;
 
+            try
+            {
+                left_value = int.Parse(left);
+                right_value = int.Parse(right);
+            }
+            catch
+            {
+                MessageBox.Show("Некорректный ввод");
+                return null;
+            }
 
             Clear();
             return GetVal(left_value, right_value, dowhat);
@@ -110,20 +123,20 @@ namespace MyWPFProject
                 case "eightBtn": return "8";                    
                 case "nineBtn": return "9";                    
                 case "zeroBtn": return "0";
-                case "equalsBtn": { return Calculate(); } 
-                case "dotBtn": return null;
-                case "plusMinusBtn": return null;
+
+                case "equalsBtn": { return Calculate(); }
                 case "plusBtn": return "+";
                 case "minusBtn": return "-";
                 case "multiplyBtn": return "*";
                 case "divideBtn": return "/";
-                case "deleteBtn": return inputString.Remove(inputString.Length - 1);
-                case "clearAllBtn": { Clear(); return "0"; }
-                case "squareBtn": return null;
-                case "sqrtBtn": return null;
-                case "percentBtn": return null;
 
-                default: return string.Empty;
+                case "deleteBtn": { var cpy = inputString; Clear();  return cpy.Remove(cpy.Length - 1, 1); }
+                case "clearAllBtn": { Clear(); return "0"; }
+
+                case "memoryRecall": { return storedValue; }
+                case "memoryStore": { storedValue = inputString; return null; }
+
+                default: return null;
             }
         }
         private void btnClick(object sender, RoutedEventArgs e)

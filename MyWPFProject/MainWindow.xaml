@@ -6,11 +6,12 @@
         xmlns:local="clr-namespace:MyWPFProject"
         mc:Ignorable="d"
         Title="Calculator" Height="400" Width="225">
-    <Grid x:Name="MainGrid" ShowGridLines="False">
+    <Grid x:Name="MainGrid" ShowGridLines="False" Background="Salmon">
         <Grid.RowDefinitions>
             <!--input-->
             <RowDefinition Height="80"></RowDefinition>
             <!--buttons-->
+
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -19,38 +20,36 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition ></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Click="btnClick" x:Name="percentBtn" Grid.Column="0" Grid.Row="1" FontWeight="Bold">%</Button>
-        <Button Click="btnClick" x:Name="sqrtBtn" Grid.Column="1" Grid.Row="1" FontWeight="Bold">√</Button>
-        <Button Click="btnClick" x:Name="squareBtn" Grid.Column="2" Grid.Row="1" FontWeight="Bold">X²</Button>
-        <Button Click="btnClick" x:Name="multiplyByTenBtn" Grid.Column="3" Grid.Row="1" FontWeight="Bold">×10</Button>
-        <Button Click="btnClick" x:Name="clearAllBtn" Grid.Column="0" Grid.Row="2" FontWeight="Bold">CE</Button>
-        <Button Click="btnClick" x:Name="clearBtn" Grid.Column="1" Grid.Row="2" FontWeight="Bold">C</Button>
-        <Button Click="btnClick" x:Name="deleteBtn" Grid.Column="2" Grid.Row="2" FontWeight="Bold">DEL</Button>
-        <Button Click="btnClick" x:Name="divideBtn" Grid.Column="3" Grid.Row="2" FontSize="24">÷</Button>
-        <Button Click="btnClick" x:Name="sevenBtn" Grid.Column="0" Grid.Row="3" FontWeight="Bold">7</Button>
-        <Button Click="btnClick" x:Name="eightBtn" Grid.Column="1" Grid.Row="3" FontWeight="Bold">8</Button>
-        <Button Click="btnClick" x:Name="nineBtn" Grid.Column="2" Grid.Row="3" FontWeight="Bold">9</Button>
-        <Button Click="btnClick" x:Name="multiplyBtn" Grid.Column="3" Grid.Row="3" FontSize="24">×</Button>
-        <Button Click="btnClick" x:Name="fourBtn" Grid.Column="0" Grid.Row="4" FontWeight="Bold">4</Button>
-        <Button Click="btnClick" x:Name="fiveBtn" Grid.Column="1" Grid.Row="4" FontWeight="Bold">5</Button>
-        <Button Click="btnClick" x:Name="sixBtn" Grid.Column="2" Grid.Row="4" FontWeight="Bold">6</Button>
-        <Button Click="btnClick" x:Name="minusBtn" Grid.Column="3" Grid.Row="4" FontSize="24">-</Button>
-        <Button Click="btnClick" x:Name="oneBtn" Grid.Column="0" Grid.Row="5" FontWeight="Bold">1</Button>
-        <Button Click="btnClick" x:Name="twoBtn" Grid.Column="1" Grid.Row="5" FontWeight="Bold">2</Button>
-        <Button Click="btnClick" x:Name="threeBtn" Grid.Column="2" Grid.Row="5" FontWeight="Bold">3</Button>
-        <Button Click="btnClick" x:Name="plusBtn" Grid.Column="3" Grid.Row="5" FontSize="24">+</Button>
-        <Button Click="btnClick" x:Name="plusMinusBtn" Grid.Column="0" Grid.Row="6" FontWeight="Bold">+/-</Button>
-        <Button Click="btnClick" x:Name="zeroBtn" Grid.Column="1" Grid.Row="6" FontWeight="Bold">0</Button>
-        <Button Click="btnClick" x:Name="dotBtn" Grid.Column="2" Grid.Row="6" FontWeight="Bold">.</Button>
-        <Button Click="btnClick" x:Name="equalsBtn" Grid.Column="3" Grid.Row="6" FontSize="24">=</Button>
+        
+        
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="clearAllBtn" Grid.Column="0" Grid.Row="2" FontWeight="Bold">CE</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="memoryRecall" Grid.Column="1" Grid.Row="2" FontWeight="Bold">MR</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="deleteBtn" Grid.Column="2" Grid.Row="2" FontWeight="Bold">DEL</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="divideBtn" Grid.Column="3" Grid.Row="2" FontSize="24">÷</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="sevenBtn" Grid.Column="0" Grid.Row="3" FontWeight="Bold">7</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="eightBtn" Grid.Column="1" Grid.Row="3" FontWeight="Bold">8</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="nineBtn" Grid.Column="2" Grid.Row="3" FontWeight="Bold">9</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="multiplyBtn" Grid.Column="3" Grid.Row="3" FontSize="24">×</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="fourBtn" Grid.Column="0" Grid.Row="4" FontWeight="Bold">4</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="fiveBtn" Grid.Column="1" Grid.Row="4" FontWeight="Bold">5</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="sixBtn" Grid.Column="2" Grid.Row="4" FontWeight="Bold">6</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="minusBtn" Grid.Column="3" Grid.Row="4" FontSize="24">-</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="oneBtn" Grid.Column="0" Grid.Row="5" FontWeight="Bold">1</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="twoBtn" Grid.Column="1" Grid.Row="5" FontWeight="Bold">2</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="threeBtn" Grid.Column="2" Grid.Row="5" FontWeight="Bold">3</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="plusBtn" Grid.Column="3" Grid.Row="5" FontSize="24">+</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="memoryStore" Grid.Column="0" Grid.Row="6" FontWeight="Bold">MS</Button>
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="zeroBtn" Grid.Column="1" Grid.Row="6" FontWeight="Bold">0</Button>
+
+        <Button Click="btnClick" Background="AntiqueWhite" x:Name="equalsBtn" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" FontSize="24">=</Button>
 
         <Viewbox Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <TextBlock x:Name="InputLabel"></TextBlock>
+            <TextBlock x:Name="InputLabel" FontFamily="Tahoma" Foreground="AliceBlue"></TextBlock>
         </Viewbox>
    
     </Grid>
