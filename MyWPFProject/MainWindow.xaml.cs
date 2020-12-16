@@ -1,18 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace MyWPFProject
 {
@@ -48,59 +37,61 @@ namespace MyWPFProject
                 return null;
             }
         }
-        private string Calculate()
+
+        private string Calculate() 
         {
             bool isLeft = true;
-            string left = string.Empty;
-            string right = string.Empty;
-            char dowhat = ' ';
+            char operand = ' ';
+            string leftValue = string.Empty;
+            string rightValue = string.Empty;
+            string answer = string.Empty;
 
-            foreach (char symbol in inputString)
+            foreach (char c in inputString) 
             {
-                
-                try
+                if (char.IsDigit(c)) 
                 {
-                    int value = int.Parse(symbol.ToString());
-                    if (isLeft) left += symbol;
-                    else right += symbol;
+                    if (isLeft)
+                        leftValue += c;
+                    else rightValue += c;
                 }
-                catch
+                else 
                 {
-                    // Второе действие
-                    if (dowhat != ' ')
+                    // Если это не число - значит это операнд
+                    if (operand != ' ')
                     {
-                        left = GetVal(int.Parse(left), int.Parse(right), dowhat);
-                        right = string.Empty;
+                        try
+                        {
+                            // Если мы встретили еще один операнд, значит что пора посчитать левую часть
+                            leftValue = GetVal(int.Parse(leftValue), int.Parse(rightValue), operand);
+                            rightValue = string.Empty;
+                        }
+                        catch 
+                        {
+                            MessageBox.Show("Некорректный ввод");
+                            return null;
+                        }
+                        operand = c;
                     }
-                    // Первое действие
                     else
                     {
-                        dowhat = symbol;
+                        operand = c;
                         isLeft = false;
                     }
                 }
-
             }
-
-            int left_value = 0;
-            int right_value = 0;
-
             try
             {
-                left_value = int.Parse(left);
-                right_value = int.Parse(right);
+                answer = GetVal(int.Parse(leftValue), int.Parse(rightValue), operand);
             }
-            catch
+            catch 
             {
                 MessageBox.Show("Некорректный ввод");
                 return null;
             }
-
             Clear();
-            return GetVal(left_value, right_value, dowhat);
-
-
+            return answer; 
         }
+
         private void Clear()
         {
             inputString = string.Empty;
@@ -123,14 +114,22 @@ namespace MyWPFProject
                 case "eightBtn": return "8";                    
                 case "nineBtn": return "9";                    
                 case "zeroBtn": return "0";
-
-                case "equalsBtn": { return Calculate(); }
+                case "equalsBtn": return Calculate();
                 case "plusBtn": return "+";
                 case "minusBtn": return "-";
                 case "multiplyBtn": return "*";
                 case "divideBtn": return "/";
 
-                case "deleteBtn": { var cpy = inputString; Clear();  return cpy.Remove(cpy.Length - 1, 1); }
+                case "deleteBtn":
+                    {
+                        try
+                        {
+                            var cpy = inputString;
+                            Clear();
+                            return cpy.Remove(cpy.Length - 1, 1);
+                        }
+                        catch { return null; }
+                    }
                 case "clearAllBtn": { Clear(); return "0"; }
 
                 case "memoryRecall": { return storedValue; }

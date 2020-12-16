@@ -5,13 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWPFProject"
         mc:Ignorable="d"
-        Title="Calculator" Height="400" Width="225">
+        Title="Calculator" Height="400" Width="225" Padding="20" WindowStartupLocation="CenterScreen">
     <Grid x:Name="MainGrid" ShowGridLines="False" Background="Salmon">
         <Grid.RowDefinitions>
             <!--input-->
             <RowDefinition Height="80"></RowDefinition>
             <!--buttons-->
-
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -25,8 +24,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
-        
+       
         <Button Click="btnClick" Background="AntiqueWhite" x:Name="clearAllBtn" Grid.Column="0" Grid.Row="2" FontWeight="Bold">CE</Button>
         <Button Click="btnClick" Background="AntiqueWhite" x:Name="memoryRecall" Grid.Column="1" Grid.Row="2" FontWeight="Bold">MR</Button>
         <Button Click="btnClick" Background="AntiqueWhite" x:Name="deleteBtn" Grid.Column="2" Grid.Row="2" FontWeight="Bold">DEL</Button>
@@ -45,7 +43,6 @@
         <Button Click="btnClick" Background="AntiqueWhite" x:Name="plusBtn" Grid.Column="3" Grid.Row="5" FontSize="24">+</Button>
         <Button Click="btnClick" Background="AntiqueWhite" x:Name="memoryStore" Grid.Column="0" Grid.Row="6" FontWeight="Bold">MS</Button>
         <Button Click="btnClick" Background="AntiqueWhite" x:Name="zeroBtn" Grid.Column="1" Grid.Row="6" FontWeight="Bold">0</Button>
-
         <Button Click="btnClick" Background="AntiqueWhite" x:Name="equalsBtn" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" FontSize="24">=</Button>
 
         <Viewbox Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Right">
